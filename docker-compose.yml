@@ -1,0 +1,43 @@
+version: '3'
+services:
+  mysql-db:
+#    https://blog.csdn.net/feinifi/article/details/109399439
+    container_name: mysql-docker
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql_volume/mysql/db:/var/lib/mysql
+      - ./mysql_volume/mysql/logs:/var/log/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: test
+  rabbitmq:
+      image: rabbitmq:3.8.3-management
+      container_name: rabbitmq-docker
+      restart: always
+      hostname: myRabbitmq
+      ports:
+        # 管理界面
+        - 15672:15672
+        - 5672:5672
+      volumes:
+        - ./rabbitmq/data:/var/lib/rabbitmq
+      environment:
+        - RABBITMQ_DEFAULT_USER=root
+        - RABBITMQ_DEFAULT_PASS=123456
+  redis:
+    image: redis
+    container_name: redis
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - ./redis/data:/data
+        # 注意这里需要先  /usr/local/app/redis/conf  新建redis.conf文件  redis.conf文件可从http://www.redis.cn/下载
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis/logs:/logs
+    command:
+      /bin/bash -c "redis-server /usr/local/etc/redis/redis.conf"
+
+
