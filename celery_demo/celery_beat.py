@@ -1,5 +1,7 @@
 from celery import Celery
-app = Celery('add_tasks', broker='redis://192.168.98.142:6379/1', backend='redis://192.168.98.142:6379/2')
+broker_url='redis://@192.168.98.142:6379/1'
+backend_url='redis://@192.168.98.142:6379/2'
+app = Celery('add_tasks', broker=broker_url, backend=backend_url)
 app.conf.update(
    #  配置所在时区
     CELERY_TIMEZONE='Asia/Shanghai',
