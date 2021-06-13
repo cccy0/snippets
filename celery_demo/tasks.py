@@ -3,7 +3,7 @@ from celery import Celery
 broker_url='redis://@192.168.98.142:6379/1'
 backend_url='redis://@192.168.98.142:6379/2'
 # app = Celery('hello', backend='rpc://',broker=broker_url)
-app = Celery('hello', backend='rpc://',broker=broker_url)
+app = Celery('hello', backend=backend_url,broker=broker_url)
 
 
 @app.task
