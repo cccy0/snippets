@@ -12,7 +12,7 @@ app.conf.update(
     CELERYBEAT_SCHEDULE={
         'my_task': {
             'task': 'celery_beat.add',  # tasks.py模块下的add方法
-            'schedule': 60,      # 每隔60运行一次
+            'schedule': 1,      # 每隔1运行一次
             'args': (23, 12),
         }
     }
