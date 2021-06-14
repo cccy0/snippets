@@ -1,3 +1,4 @@
+# https://www.cnblogs.com/fnlingnzb-learner/p/8136187.html
 insert into test_table1 (name)
 values ('xiaoming'),
        ('fky')
