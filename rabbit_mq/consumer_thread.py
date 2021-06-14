@@ -55,7 +55,7 @@ def on_message(channel, method_frame, header_frame, body, args):
 credentials = pika.PlainCredentials('root', '123456')
 # Note: sending a short heartbeat to prove that heartbeats are still
 # sent even though the worker simulates long-running work
-parameters = pika.ConnectionParameters(host='192.168.98.130', credentials=credentials, heartbeat=5)
+parameters = pika.ConnectionParameters(host='192.168.98.143', credentials=credentials, heartbeat=5)
 connection = pika.BlockingConnection(parameters)
 
 channel = connection.channel()

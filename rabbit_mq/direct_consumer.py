@@ -6,18 +6,20 @@ connection = pika.BlockingConnection(pika.ConnectionParameters(host='192.168.98.
 channel = connection.channel()
 
 queue_name = 'hello'
-channel.queue_declare(queue=queue_name)
+channel.queue_declare(queue=queue_name,)
 
-exchange_name = 'fanout_hello_exchange'
+exchange_name = 'direct_hello_exchange'
 channel.exchange_declare(
     exchange=exchange_name,
-    exchange_type=ExchangeType.fanout
+    exchange_type=ExchangeType.direct,
+
 )
 
 # queue绑定到exchange
 channel.queue_bind(
     exchange=exchange_name,
-    queue=queue_name
+    queue=queue_name,
+    routing_key='my_direct_routing_key'
 )
 
 
