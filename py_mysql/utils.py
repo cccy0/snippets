@@ -20,9 +20,10 @@ def insert_data(data: Union[dict, typing.List[dict]]):
     with connection.cursor() as cur:
         if data:
             columns = ','.join(data[0].keys())
+            in_data=[list(i.values()) for i in data]
             placeholders = ",".join(["%s"] * len(data[0]))
             sql = "insert into %s (%s) values (%s)" % ('table_1', columns, placeholders)
-            cur.executemany(sql, data)
+            cur.executemany(sql, in_data)
     connection.commit()
 
 
