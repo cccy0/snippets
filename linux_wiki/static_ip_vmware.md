@@ -53,3 +53,8 @@ https://blog.csdn.net/u014466635/article/details/80284792
 
 https://www.cnblogs.com/yyee/p/12899953.html
 
+改完之后无法从物理机访问虚拟机中的docker
+
+可把docker的网络模式改为与虚拟机共享的host
+
+https://blog.kelu.org/tech/2019/04/05/docker-compose-using-net-host.html
