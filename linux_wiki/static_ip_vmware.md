@@ -47,3 +47,9 @@ network:
 
 sudo netplan apply
 
+https://blog.csdn.net/brazor/article/details/99414144
+
+https://blog.csdn.net/u014466635/article/details/80284792
+
+https://www.cnblogs.com/yyee/p/12899953.html
+
